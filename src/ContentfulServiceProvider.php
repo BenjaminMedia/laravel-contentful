@@ -3,12 +3,11 @@
 namespace Bonnier\Contentful;
 
 use Bonnier\Contentful\ContentManagement\Locales;
-use Bonnier\Contentful\ContentManagement\Entries;
 use Illuminate\Support\ServiceProvider;
 
 class ContentfulServiceProvider extends ServiceProvider
 {
-    protected $managementApiKey, $deliveryApiKey, $spaceId;
+    protected $managementApiKey, $deliveryApiKey, $spaceId, $previewApiKey;
 
     /**
      * Bootstrap the application services.
@@ -23,6 +22,7 @@ class ContentfulServiceProvider extends ServiceProvider
 
         $this->managementApiKey = config('contentful.management_api_key');
         $this->deliveryApiKey = config('contentful.delivery_api_key');
+        $this->previewApiKey = config('contentful.preview_api_key');
         $this->spaceId = config('contentful.space_id');
     }
 
@@ -37,8 +37,12 @@ class ContentfulServiceProvider extends ServiceProvider
             return new Locales($this->spaceId, $this->managementApiKey);
         });
 
-        $this->app->singleton(Entries::class, function () {
-            return new Entries($this->spaceId, $this->managementApiKey);
+        $this->app->singleton(ContentManagement\Entries::class, function () {
+            return new ContentManagement\Entries($this->spaceId, $this->managementApiKey);
+        });
+
+        $this->app->singleton(Preview\Entries::class, function () {
+            return new Preview\Entries($this->spaceId, $this->previewApiKey);
         });
     }
 
@@ -51,7 +55,8 @@ class ContentfulServiceProvider extends ServiceProvider
     {
         return [
             Locales::class,
-            Entries::class,
+            ContentManagement\Entries::class,
+            Preview\Entries::class
         ];
     }
 }
