@@ -2,7 +2,9 @@
 
 namespace Bonnier\Contenful\ContentManagement;
 
-class Locales extends Client
+use Bonnier\Contentful\BaseClient;
+
+class Locales extends BaseClient
 {
     const API = 'api';
     const API_RESOURCE = 'locales';
