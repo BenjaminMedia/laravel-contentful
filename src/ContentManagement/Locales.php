@@ -1,6 +1,6 @@
 <?php
 
-namespace Bonnier\Contenful\ContentManagement;
+namespace Bonnier\Contentful\ContentManagement;
 
 use Bonnier\Contentful\BaseClient;
 

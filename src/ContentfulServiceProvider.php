@@ -1,8 +1,8 @@
 <?php
 
-namespace Bonnier\Contenful;
+namespace Bonnier\Contentful;
 
-use Bonnier\Contenful\ContentManagement\Locales;
+use Bonnier\Contentful\ContentManagement\Locales;
 use Bonnier\Contentful\ContentManagement\Entries;
 use Illuminate\Support\ServiceProvider;
 
