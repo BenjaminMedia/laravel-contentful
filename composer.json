@@ -1,0 +1,27 @@
+{
+    "name": "bonnier/laravel-contentful",
+    "description": "A Laravel package for integrating with integrating Contenful API's",
+    "keywords": ["laravel", "contentful"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alf Henderson",
+            "email": "alf.henderson@bonnier.dk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5",
+        "guzzlehttp/guzzle": "^6"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Bonnier\\Contenful\\": "src/"
+        }
+    },
+
+    "minimum-stability": "dev"
+}
