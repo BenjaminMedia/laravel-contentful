@@ -1,6 +1,6 @@
 <?php
 
-namespace BpTrapp\Providers;
+namespace Bonnier\Contenful;
 
 use Bonnier\Contenful\ContentManagement\Locales;
 use Bonnier\Contentful\ContentManagement\Entries;
