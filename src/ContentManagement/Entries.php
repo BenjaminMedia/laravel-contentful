@@ -7,7 +7,7 @@ use Bonnier\Contentful\BaseClient;
 class Entries extends BaseClient
 {
     const API = 'api';
-    const API_RESOURCE = 'locales';
+    const API_RESOURCE = 'entries';
 
     public function __construct($spaceId, $apiKey)
     {
