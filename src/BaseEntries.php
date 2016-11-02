@@ -6,11 +6,6 @@ abstract class BaseEntries extends BaseClient
 {
     const API_RESOURCE = 'entries';
 
-    public function __construct($spaceId, $apiKey)
-    {
-        parent::__construct($spaceId, $apiKey);
-    }
-
     public function getEntries(Array $params = [], $resolveLinks = false) {
 
         $entries = json_decode(
