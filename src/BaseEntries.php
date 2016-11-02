@@ -43,14 +43,17 @@ abstract class BaseEntries extends BaseClient
     private function resolveLinkedFields($entry) {
 
         $entry->fields = collect($entry->fields)->map(function($field){
-            return collect($field)->map(function($localizedValue){
-                if(is_array($localizedValue)) {
-                    return collect($localizedValue)->map(function($link){
-                        return $this->resolveLink($link);
-                    });
-                }
-                return $this->resolveLink($localizedValue);
-            });
+            if(is_array($field)) {
+                return collect($field)->map(function($localizedValue){
+                    if(is_array($localizedValue)) {
+                        return collect($localizedValue)->map(function($link){
+                            return $this->resolveLink($link);
+                        });
+                    }
+                    return $this->resolveLink($localizedValue);
+                });
+            }
+            return $this->resolveLink($field);
         });
 
         return $entry;
@@ -63,5 +66,5 @@ abstract class BaseEntries extends BaseClient
         return $link;
     }
 
-    
+
 }
